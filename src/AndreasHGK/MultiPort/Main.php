@@ -31,9 +31,9 @@ class Main extends PluginBase{
 	    $ports = $this->getConfig()->get('ports');
 	    if(isset($ports) && !empty($ports) && $ports !== false){
             foreach ($ports as $port){
-                if($port === $this->getServer()->getPort()){
-                    $this->getLogger()->debug("Tried to assign the default port. (".$port.")");
-                }else{
+               // if($port === $this->getServer()->getPort()){
+                   // $this->getLogger()->debug("Tried to assign the default port. (".$port.")");
+               // }else{
                     $in = new MultiPortInterface($this->getServer(), $port);
                     $this->getServer()->getNetwork()->registerInterface($in);
                     $this->getLogger()->debug("Now listening on port ".$port);
